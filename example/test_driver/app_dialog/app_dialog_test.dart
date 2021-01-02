@@ -2,7 +2,7 @@ import 'package:flutter_driver/flutter_driver.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input_test.dart';
 import 'package:test/test.dart';
 
-main() {
+void main() {
   group('International Phone Number Input', () {
     final inputTextFieldFinder = find.byValueKey(TestHelper.TextInputKeyValue);
     final dropdownButtonFinder =
@@ -18,7 +18,7 @@ main() {
 
     tearDownAll(() async {
       if (driver != null) {
-        driver.close();
+        await driver.close();
       }
     });
 
@@ -43,7 +43,7 @@ main() {
 
     test('Scroll to view and Select Country', () async {
       await driver.scroll(find.byType('SingleChildScrollView'), 0, -17500,
-          Duration(milliseconds: 300));
+          const Duration(milliseconds: 300));
 
       await driver.tap(find.byValueKey(TestHelper.countryItemKeyValue('US')));
     });

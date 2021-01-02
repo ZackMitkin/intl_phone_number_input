@@ -40,12 +40,6 @@ class AsYouTypeFormatter extends TextInputFormatter {
       String rawText = newValueText.replaceAll(separatorChars, '');
       String textToParse = dialCode + rawText;
 
-      final insertedDigits = newValueText
-          .substring(
-              oldValue.selection.start == -1 ? 0 : oldValue.selection.start,
-              newValue.selection.end == -1 ? 0 : newValue.selection.end)
-          .replaceAll(separatorChars, '');
-
       formatAsYouType(input: textToParse).then(
         (String value) {
           String parsedText = parsePhoneNumber(value);

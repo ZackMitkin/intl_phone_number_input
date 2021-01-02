@@ -2,7 +2,7 @@ import 'package:flutter_driver/flutter_driver.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input_test.dart';
 import 'package:test/test.dart';
 
-main() {
+void main() {
   group('International Phone Number Input Integration Test', () {
     final inputTextFieldFinder = find.byValueKey(TestHelper.TextInputKeyValue);
     final dropdownButtonFinder =
@@ -16,7 +16,7 @@ main() {
 
     tearDownAll(() async {
       if (driver != null) {
-        driver.close();
+        await driver.close();
       }
     });
 

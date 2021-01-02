@@ -75,7 +75,7 @@ class RegionInfo {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['regionPrefix'] = this.regionPrefix;
     data['isoCode'] = this.isoCode;
     data['formattedPhoneNumber'] = this.formattedPhoneNumber;
@@ -157,9 +157,6 @@ extension phonenumbertypeproperties on PhoneNumberType {
         break;
       case PhoneNumberType.PERSONAL_NUMBER:
         return 7;
-        break;
-      case PhoneNumberType.PREMIUM_RATE:
-        return 8;
         break;
       case PhoneNumberType.UAN:
         return 9;

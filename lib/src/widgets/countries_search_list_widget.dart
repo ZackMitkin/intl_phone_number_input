@@ -102,21 +102,22 @@ class _CountrySearchListWidgetState extends State<CountrySearchListWidget> {
               Country country = filteredCountries[index];
               if (country == null) return null;
               return ListTile(
-                key: Key(TestHelper.countryItemKeyValue(country.alpha2Code)),
-                leading: widget.showFlags
-                    ? _Flag(country: country, useEmoji: widget.useEmoji)
-                    : null,
-                title: Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Text('${getCountryName(country)}',
-                        textAlign: TextAlign.start)),
-                subtitle: Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: Text('${country?.dialCode ?? ''}',
-                        textDirection: TextDirection.ltr,
-                        textAlign: TextAlign.start)),
-                onTap: () => Navigator.of(context).pop(country),
-              );
+                  key: Key(TestHelper.countryItemKeyValue(country.alpha2Code)),
+                  leading: widget.showFlags
+                      ? _Flag(country: country, useEmoji: widget.useEmoji)
+                      : null,
+                  title: Align(
+                      alignment: AlignmentDirectional.centerStart,
+                      child: Text('${getCountryName(country)}',
+                          textAlign: TextAlign.start)),
+                  subtitle: Align(
+                      alignment: AlignmentDirectional.centerStart,
+                      child: Text('${country?.dialCode ?? ''}',
+                          textDirection: TextDirection.ltr,
+                          textAlign: TextAlign.start)),
+                  onTap: () {
+                    Navigator.of(context).pop(country);
+                  });
             },
           ),
         ),
